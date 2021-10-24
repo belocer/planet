@@ -8,6 +8,8 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  transform-style: preserve-3d;
+  transform: perspective(1200px);
 }
 
 .sun__system {
@@ -18,10 +20,12 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 50px;
-  transform: translate(-50%, -50%) scale(0.7);
+  transform: translate(-50%, -50%) scale(1);
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 7;
+  animation: linear reduce_sun_system 5s 10s forwards;
 
   @media screen and (max-width: 600px) {
     transform: scale(0.7);
@@ -32,10 +36,33 @@
   overflow: hidden;
   width: 194px;
   height: 700px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(.1);
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
+  z-index: 6;
+  animation: linear reduce_wrap__bottle 5s 7s forwards;
+  opacity: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 105;
+    background: url("../img/dest/bottle_flare.webp");
+    background-size: cover;
+    width: 194px;
+    height: 700px;
+    opacity: .2;
+  }
+}
+
+@keyframes reduce_wrap__bottle {
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }
 
 .bottle_empty {
@@ -44,7 +71,7 @@
   background: url(../img/dest/bottle2.png) center center/contain no-repeat no-repeat;
   position: relative;
   transform: translateY(10px) scale(1);
-  z-index: 1;
+  z-index: 4;
   overflow: hidden;
   opacity: .75;
 }
@@ -56,13 +83,57 @@
   min-width: 180px;
   min-height: 260px;
   display: inline-block;
-  z-index: 0;
+  z-index: 2;
   position: absolute;
   bottom: -354px;
   left: 8px;
   background: #1d0000;
-  animation: linear full_bottle 3s 3s forwards;
+  animation: linear full_bottle 3s 15s forwards;
   transition: all 3s;
+  opacity: 0.7;
+}
+
+.label {
+  position: absolute;
+  bottom: 35px;
+  left: -150px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 250px;
+  z-index: 100;
+  opacity: 0;
+  animation: linear opacity1 3s 15s forwards;
+}
+
+@keyframes opacity1 {
+  100% {
+    opacity: 1;
+  }
+}
+
+.label_front {
+  width: 260px;
+  height: 250px;
+  background: url("../img/dest/front.webp") center center / contain no-repeat no-repeat;
+  z-index: 10;
+  filter: brightness(.85);
+}
+
+.label_back {
+  width: 260px;
+  height: 250px;
+  background: url("../img/dest/back.webp") center center / contain no-repeat no-repeat;
+  z-index: 11;
+}
+
+@keyframes full_bottle {
+  0% {
+    bottom: -354px;
+  }
+  100% {
+    bottom: 10px;
+  }
 }
 
 @keyframes full_bottle {
@@ -365,6 +436,7 @@
 
 @keyframes reduce_sun_system {
   100% {
-    transform: scale(0.2);
+    transform: translate(-50%, -50%) scale(0.15);
+    z-index: 5;
   }
 }
