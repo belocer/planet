@@ -25,7 +25,7 @@
   top: 50%;
   left: 50%;
   z-index: 7;
-  animation: linear reduce_sun_system 5s 10s forwards;
+  animation: linear reduce_sun_system 5s 20s forwards;
 
   @media screen and (max-width: 600px) {
     transform: scale(0.7);
@@ -41,7 +41,7 @@
   top: 35%;
   left: 50%;
   z-index: 6;
-  animation: linear reduce_wrap__bottle 5s 7s forwards;
+  animation: linear reduce_wrap__bottle 5s 18s forwards;
   opacity: 0;
 
   &::before {
@@ -104,6 +104,7 @@
   z-index: 100;
   opacity: 0;
   animation: linear opacity1 3s 15s forwards;
+  transition: all 1s;
 }
 
 @keyframes opacity1 {
