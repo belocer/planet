@@ -1,7 +1,7 @@
 .planet__container {
   height: 100vh;
   width: 100vw;
-  background: url("../img/dest/milky-way.jpg");
+  background: url("../img/dest/milky-way.jpg") center center no-repeat no-repeat;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -10,6 +10,10 @@
   flex-wrap: wrap;
   transform-style: preserve-3d;
   transform: perspective(1200px);
+
+  @media screen and (max-width: 600px) {
+    background-size: contain;
+  }
 }
 
 .sun__system {
@@ -20,7 +24,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 50px;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1.1);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,7 +32,7 @@
   animation: linear reduce_sun_system 5s 20s forwards;
 
   @media screen and (max-width: 600px) {
-    transform: scale(0.7);
+    transform: translate(-50%, -50%) scale(0.7);
   }
 }
 
@@ -41,8 +45,12 @@
   top: 35%;
   left: 50%;
   z-index: 6;
-  animation: linear reduce_wrap__bottle 5s 18s forwards;
+  animation: linear reduce_wrap__bottle 5s 20s forwards;
   opacity: 0;
+
+  @media screen and (max-width: 600px) {
+    top: 45%;
+  }
 
   &::before {
     content: '';
@@ -54,7 +62,7 @@
     background-size: cover;
     width: 194px;
     height: 700px;
-    opacity: .2;
+    opacity: .3;
   }
 }
 
@@ -88,7 +96,7 @@
   bottom: -354px;
   left: 8px;
   background: #1d0000;
-  animation: linear full_bottle 3s 15s forwards;
+  animation: linear full_bottle 3s 24s forwards;
   transition: all 3s;
   opacity: 0.7;
 }
@@ -103,7 +111,7 @@
   height: 250px;
   z-index: 100;
   opacity: 0;
-  animation: linear opacity1 3s 15s forwards;
+  animation: linear opacity1 3s 26s forwards;
   transition: all 1s;
 }
 
@@ -124,7 +132,8 @@
 .label_back {
   width: 260px;
   height: 250px;
-  background: url("../img/dest/back.webp") center center / contain no-repeat no-repeat;
+  background: url("../img/dest/back1.webp") center center / contain no-repeat no-repeat;
+  filter: brightness(.85);
   z-index: 11;
 }
 
