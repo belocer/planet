@@ -1,0 +1,370 @@
+.planet__container {
+  height: 100vh;
+  width: 100vw;
+  background: url("../img/dest/milky-way.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sun__system {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 50px;
+  transform: translate(-50%, -50%) scale(0.7);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  @media screen and (max-width: 600px) {
+    transform: scale(0.7);
+  }
+}
+
+.wrap__bottle {
+  overflow: hidden;
+  width: 194px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.bottle_empty {
+  width: 194px;
+  height: 700px;
+  background: url(../img/dest/bottle2.png) center center/contain no-repeat no-repeat;
+  position: relative;
+  transform: translateY(10px) scale(1);
+  z-index: 1;
+  overflow: hidden;
+  opacity: .75;
+}
+
+.bottle {
+  width: 180px;
+  height: 354px;
+  border-radius: 9px 9px 0 0;
+  min-width: 180px;
+  min-height: 260px;
+  display: inline-block;
+  z-index: 0;
+  position: absolute;
+  bottom: -354px;
+  left: 8px;
+  background: #1d0000;
+  animation: linear full_bottle 3s 3s forwards;
+  transition: all 3s;
+}
+
+@keyframes full_bottle {
+  0% {
+    bottom: -354px;
+  }
+  100% {
+    bottom: 10px;
+  }
+}
+
+.planet__wrap {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 5px 0 3px rgba(0, 0, 0, .3);
+  z-index: 20;
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset -20px 10px 20px rgba(0, 0, 0, .5), inset 15px -10px 15px rgba(255, 255, 255, 0.3);
+    z-index: 10;
+  }
+}
+
+.star__wrap {
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 5px 0 300px rgb(255, 186, 0);
+  z-index: 20;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset -20px 10px 20px rgba(255, 102, 20, 0.91), inset 15px -10px 15px rgba(255, 255, 255, 0.7);
+    z-index: 10;
+  }
+}
+
+.planet,
+.star {
+  height: 100px;
+  width: 10000px;
+  animation: linear infinite torque 1800s;
+  position: absolute;
+  top: 0;
+  left: -250px;
+}
+
+.star {
+  height: 120px;
+}
+
+.sun {
+  background: url("../img/dest/sun.webp") center center / contain repeat-x;
+  filter: brightness(1.3);
+  height: 120px;
+}
+
+@-webkit-keyframes torque {
+  0% {
+    transform: translateX(-550px)
+  }
+
+  50% {
+    transform: translateX(-9000px)
+  }
+
+  100% {
+    transform: translateX(-550px)
+  }
+}
+
+.planet1__wrap {
+  width: 30px;
+  height: 30px;
+  animation: linear rotate_orbit 250s infinite reverse;
+}
+
+.planet1 {
+  height: 30px;
+  background: url("../img/dest/1mercury.webp") center center / contain repeat-x;
+}
+
+.orbit1 {
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 25s infinite;
+  z-index: 20;
+}
+
+.planet2__wrap {
+  width: 40px;
+  height: 40px;
+  animation: linear rotate_orbit 250s infinite reverse;
+}
+
+.planet2 {
+  height: 40px;
+  background: url("../img/dest/2venera.webp") center center / contain repeat-x;
+}
+
+.orbit2 {
+  width: 190px;
+  height: 190px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 30s .5s infinite;
+  z-index: 20;
+}
+
+.planet3__wrap {
+  width: 70px;
+  height: 70px;
+  animation: linear rotate_orbit 350s infinite reverse;
+}
+
+.planet3 {
+  height: 70px;
+  background: url("../img/dest/3earth.webp") center center / contain repeat-x;
+}
+
+.orbit3 {
+  width: 275px;
+  height: 275px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 40s 1s infinite;
+  z-index: 20;
+}
+
+.planet4__wrap {
+  width: 60px;
+  height: 60px;
+  animation: linear rotate_orbit 250s infinite reverse;
+}
+
+.planet4 {
+  height: 60px;
+  background: url("../img/dest/4mars.webp") center center / contain repeat-x;
+}
+
+.orbit4 {
+  width: 365px;
+  height: 365px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 50s 1.5s infinite;
+  z-index: 20;
+}
+
+.planet5__wrap {
+  width: 90px;
+  height: 90px;
+  animation: linear rotate_orbit 250s infinite reverse;
+}
+
+.planet5 {
+  height: 90px;
+  background: url("../img/dest/5jupiter.webp") center center / contain repeat-x;
+}
+
+.orbit5 {
+  width: 480px;
+  height: 480px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 70s 2s infinite;
+  z-index: 20;
+}
+
+.planet6__wrap {
+  width: 78px;
+  height: 78px;
+  animation: linear rotate_orbit 250s infinite reverse;
+}
+
+.planet6 {
+  height: 78px;
+  background: url("../img/dest/6saturn.webp") center center / contain repeat-x;
+}
+
+.orbit6 {
+  width: 590px;
+  height: 590px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 90s 2.5s infinite;
+  z-index: 20;
+}
+
+.planet7__wrap {
+  width: 60px;
+  height: 60px;
+  animation: linear rotate_orbit 250s infinite reverse;
+}
+
+.planet7 {
+  height: 60px;
+  background: url("../img/dest/7uran.webp") center center / contain repeat-x;
+}
+
+.orbit7 {
+  width: 675px;
+  height: 675px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 110s 3s infinite;
+  z-index: 20;
+}
+
+.planet8__wrap {
+  width: 56px;
+  height: 56px;
+  animation: linear rotate_orbit 170s infinite reverse;
+}
+
+.planet8 {
+  height: 56px;
+  background: url("../img/dest/8neptun.webp") center center / contain repeat-x;
+}
+
+.orbit8 {
+  width: 755px;
+  height: 755px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 140s 3.5s infinite;
+  z-index: 20;
+}
+
+.planet9__wrap {
+  width: 50px;
+  height: 50px;
+  animation: linear rotate_orbit 150s infinite reverse;
+}
+
+.planet9 {
+  height: 50px;
+  background: url("../img/dest/9pluton.webp") center center / contain repeat-x;
+}
+
+.orbit9 {
+  width: 830px;
+  height: 830px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: linear rotate_orbit 180s 4s infinite;
+  z-index: 20;
+}
+
+@keyframes rotate_orbit {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes reduce_bottle {
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes reduce_sun_system {
+  100% {
+    transform: scale(0.2);
+  }
+}
