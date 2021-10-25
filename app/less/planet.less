@@ -24,7 +24,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 50px;
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -112,7 +112,6 @@
   z-index: 100;
   opacity: 0;
   animation: linear opacity1 3s 26s forwards;
-  transition: all 1s;
 }
 
 @keyframes opacity1 {
@@ -242,7 +241,7 @@
 
 .planet1 {
   height: 30px;
-  background: url("../img/dest/1mercury.webp") center center / contain repeat-x;
+  background: url("../img/dest/merkury.webp") center center / contain repeat-x;
 }
 
 .orbit1 {
@@ -330,6 +329,7 @@
 
 .planet5 {
   height: 90px;
+  overflow: hidden;
   background: url("../img/dest/5jupiter.webp") center center / contain repeat-x;
 }
 
